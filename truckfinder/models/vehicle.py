@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
+import datetime
 
 from truckfinder.models import db
 
 
 class Vehicle(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    date_added = db.Column(db.DateTime)
     vin = db.Column(db.String(32), unique=True)
     stage = db.Column(db.String(32))
     sticker_url = db.Column(db.String(2048))
@@ -21,6 +23,7 @@ class Vehicle(db.Model):
     dealership = db.relationship('Dealership', backref=db.backref('vehicles', lazy='dynamic'))
 
     def __init__(self, truck, dealership):
+        self.date_added = datetime.date.today()
         self.vin = truck.vin
         self.stage = truck.stage
         self.sticker_url = truck.sticker_url

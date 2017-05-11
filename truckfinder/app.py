@@ -11,6 +11,7 @@ from truckfinder.models import db
 import truckfinder.models.dealership
 import truckfinder.models.price
 import truckfinder.models.vehicle
+import truckfinder.models.metric
 
 
 def create_app():
