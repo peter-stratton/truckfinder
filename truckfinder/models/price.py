@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from datetime import datetime
+import datetime
 
 from truckfinder.models import db
 
@@ -16,7 +16,7 @@ class Price(db.Model):
     vehicle = db.relationship('Vehicle', backref=db.backref('prices', lazy='dynamic'))
 
     def __init__(self, price, vehicle):
-        self.date = datetime.utcnow()
+        self.date = datetime.date.today()
         self.msrp_adjusted = price.msrp
         self.allx_adjusted = price.allx
         self.az_adjusted = price.az

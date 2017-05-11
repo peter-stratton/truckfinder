@@ -46,7 +46,6 @@ $ inv db_downgrade
 Rollback to base and delete all migrations
 
 ```bash
-$ inv db_purge
 ```
 
 Build Commands
