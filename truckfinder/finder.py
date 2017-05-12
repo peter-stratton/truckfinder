@@ -16,13 +16,14 @@ Dealer = namedtuple('Dealer', 'name, code, distance, phone, street, city, state,
 Truck = namedtuple('Truck', 'vin, features, stage, sticker_url, vehicle_url')
 Prices = namedtuple('Prices', 'msrp, allx, az, az_applicable')
 
+# While the url parameter for this is dealer_slug, in truth it's an access token and needs to regenerated every 24 hours
+# by visiting http://shop.ford.com/inventory/f150/results?zipcode=19027&Radius=20&Dealer=01306&Order=Distance, opening
+# the dev console, and examining the XHR requests to find a new token.
 DEALER_SLUG = "9pTZ5jO83NqLHxrtXPJnZ9d7P61O4Y3LyYzMtdhjqMKEpFRPcSsQ0VSTRpAXkjLL"
-
 
 DEALER_SRC_URL = "http://shop.ford.com/aemservices/cache/inventory/dealer/dealers?make=Ford&market=US&inventoryType=Radius&maxDealerCount=150&model=f-150&segment=Truck&zipcode=19027"
 INVENTORY_URL = "http://shop.ford.com/aemservices/cache/inventory/dealer-lot?dealerSlug={}&make=Ford&market=US&Cab=supcrew_cab&Dealer={}&Drive=4x4&Engine=v_6_ecoboost&Order=Distance&Radius=100&inventoryType=Radius&model=f-150&modeltrim=F-150_F24-XLT&segment=Truck&year=2017&zipcode=19027"
 VEHICLE_DETAIL = "http://shop.ford.com/aemservices/cache/inventory/dealer-lot?dealerSlug={0}&make=Ford&market=US&Cab=supcrew_cab&Dealer={1}&Drive=4x4&Engine=v_6_ecoboost&Order=Distance&Radius=100&beginIndex={2}&endIndex={3}&inventoryType=Radius&model=f-150&modeltrim=F-150_F24-XLT&return=MoreVehicles&year=2017&zipcode=19027"
-
 VEHICLE_URL = "http://shop.ford.com/inventory/f150/details/{}?zipcode=19027&year=2017&ownerPACode={}"
 
 PACKAGE_ID = '302A'
