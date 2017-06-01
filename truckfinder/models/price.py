@@ -7,6 +7,7 @@ from truckfinder.models import db
 class Price(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime)
+    dealer_price = db.Column(db.Integer)
     msrp_adjusted = db.Column(db.Integer)
     allx_adjusted = db.Column(db.Integer)
     az_adjusted = db.Column(db.Integer)
@@ -17,6 +18,7 @@ class Price(db.Model):
 
     def __init__(self, price, vehicle):
         self.date = datetime.date.today()
+        self.dealer_price = price.dealer_price
         self.msrp_adjusted = price.msrp
         self.allx_adjusted = price.allx
         self.az_adjusted = price.az

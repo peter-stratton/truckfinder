@@ -18,6 +18,7 @@ class Vehicle(db.Model):
     f_mpg = db.Column(db.String(32))
     f_package = db.Column(db.String(32))
     f_transmission = db.Column(db.String(256))
+    f_bodycolor = db.Column(db.String(256))
 
     dealership_id = db.Column(db.Integer, db.ForeignKey('dealership.id'))
     dealership = db.relationship('Dealership', backref=db.backref('vehicles', lazy='dynamic'))
@@ -35,6 +36,7 @@ class Vehicle(db.Model):
         self.f_mpg = truck.features['MPG']
         self.f_package = truck.features['Package']
         self.f_transmission = truck.features['Transmission']
+        self.f_bodycolor = truck.bodycolor
         self.dealership = dealership
 
     def __repr__(self):
